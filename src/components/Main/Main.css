@@ -10,6 +10,7 @@
 .main__wrapper {
   box-sizing: border-box;
   margin: 0 auto;
+  padding: 0 104px;
   max-width: 1440px;
   width: 100%;
   min-height: 576px;
@@ -45,4 +46,54 @@
   font-size: 18px;
   line-height: 1.33;
   color: rgba(255, 255, 255, 1);
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    margin: -66px 0 0;
+  }
+
+  .main__wrapper {
+    padding: 0 40px;
+    min-height: 400px;
+  }
+
+  .main__content {
+    padding-top: 38px;
+    max-width: 452px;
+  }
+
+  .main__title {
+    font-size: 36px;
+    line-height: 1.11;
+  }
+
+  .main__subtitle {
+    margin: 16px 0 48px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main {
+    margin: -56px 0 0;
+  }
+
+  .main__wrapper {
+    padding: 0 16px;
+    min-height: 536px;
+  }
+
+  .main__content {
+    padding-top: 25px;
+    max-width: 288px;
+  }
+
+  .main__title {
+    font-size: 36px;
+    line-height: 1.11;
+  }
+
+  .main__subtitle {
+    margin: 16px 0 122px;
+  }
 }

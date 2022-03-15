@@ -1,8 +1,8 @@
 import React from 'react';
 import './Navigation.css';
 
-function Navigation(){
-  const [isMenuOpen, setIsMenuOpen]   = React.useState(false);
+function Navigation(props){
+  const { isMenuOpen, toggleMenu } = props;
   const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
 
   React.useEffect(() => {
@@ -14,10 +14,6 @@ function Navigation(){
       window.removeEventListener('resize', changeScreenWidth);
     }
   }, []);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  }
 
   const hamburgerButtonClassName = `hamburger ${(isMenuOpen)? `hamburger_close`: ``}`;
 

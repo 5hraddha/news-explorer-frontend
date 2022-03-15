@@ -8,6 +8,10 @@
   z-index: 10;
 }
 
+.header_black {
+  background-color: rgba(0, 0, 0, 1);
+}
+
 .header__wrapper {
   box-sizing: border-box;
   margin: 0 auto;
@@ -23,7 +27,6 @@
 .header__logo {
   margin: 0;
   padding: 0;
-  min-height: 80px;
   font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -38,17 +41,20 @@
 @media screen and (max-width: 768px) {
   .header__wrapper {
     padding: 0 40px;
+    min-height: 66px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .header__wrapper {
     padding: 0 16px;
+    min-height: 56px;
     flex-direction: column;
     align-items: flex-start;
   }
 
   .header__logo {
+    min-height: 56px;
     font-size: 16px;
     line-height: 1.5;
   }
