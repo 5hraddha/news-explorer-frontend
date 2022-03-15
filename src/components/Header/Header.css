@@ -5,7 +5,7 @@
   background-color: rgba(196, 196, 196, 0.01);
   box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
   position: relative;
-  z-index: 10;
+  z-index: 20;
 }
 
 .header_black {
@@ -22,6 +22,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .header__logo {
@@ -36,6 +37,44 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.overlay {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay_visible {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility .4s ease-in-out, opacity .4s ease-in-out;
+}
+
+.hamburger {
+  display: none;
+  margin: 0;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  background: transparent url('../../images/hamburger-open.svg') no-repeat center;
+  border: none;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.hamburger_close {
+  background: transparent url('../../images/hamburger-close.svg') no-repeat center;
 }
 
 @media screen and (max-width: 768px) {
@@ -57,5 +96,13 @@
     min-height: 56px;
     font-size: 16px;
     line-height: 1.5;
+  }
+
+  .overlay {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
   }
 }
