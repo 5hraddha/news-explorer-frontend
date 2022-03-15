@@ -1,0 +1,48 @@
+.main {
+  box-sizing: border-box;
+  margin: -80px 0 0;
+  padding: 0;
+  width: 100%;
+  background: url('../../images/hero-banner.png') no-repeat center;
+  background-size: cover;
+}
+
+.main__wrapper {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
+  min-height: 576px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__content {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 608px;
+}
+
+.main__title {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 60px;
+  line-height: 1.07;
+  color: rgba(255, 255, 255, 1);
+}
+
+.main__subtitle {
+  margin: 32px 0 88px;
+  padding: 0;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.33;
+  color: rgba(255, 255, 255, 1);
+}
