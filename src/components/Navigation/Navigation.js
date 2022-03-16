@@ -17,7 +17,7 @@ function Navigation(props){
   }, []);
 
   return (
-    <nav className={navClassName}>
+    <nav className={navClassName} aria-label="primary">
       {(isMenuOpen || screenWidth > 500) && (<ul className="nav__list">
         <li className="nav__item">
           <a className="nav__link" href="#home">Home</a>
