@@ -6,10 +6,12 @@ import NewsCardList   from '../NewsCardList/NewsCardList';
 import About          from '../About/About';
 import Footer         from '../Footer/Footer';
 import news           from '../../utils/news';
+import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const NO_OF_CARDS_TO_RENDER = 3;
+  const savedArticles = [];
 
   const handleLogin = () => {
     // Hit API endpoint
@@ -36,6 +38,7 @@ function App() {
         handleDelete={handleDelete}
         news={news}
         noOfCardsToRender={NO_OF_CARDS_TO_RENDER} />
+      <SavedNewsHeader savedArticles={savedArticles} />
       <About />
       <Footer />
     </div>
