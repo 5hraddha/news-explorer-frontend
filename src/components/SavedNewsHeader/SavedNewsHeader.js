@@ -1,7 +1,7 @@
 import React from 'react';
 import './SavedNewsHeader.css';
 
-function SavedNewsHeader({savedArticles}){
+function SavedNewsHeader({savedNews}){
   // To be taken from the context
   const currentUser = 'Elise';
 
@@ -10,7 +10,7 @@ function SavedNewsHeader({savedArticles}){
       <div className="saved-news-header__wrapper">
         <p className="saved-news-header__section-name">Saved articles</p>
         <h2 className="saved-news-header__title">
-          {currentUser}, you have {savedArticles.length || 5} saved articles
+          {currentUser}, you have {savedNews.length || 5} saved articles
         </h2>
         <p className="saved-news-header__keywords">
           By keywords: <span className="saved-news-header__keywords_bold">Nature, Yellowstone, and 2 other</span></p>
