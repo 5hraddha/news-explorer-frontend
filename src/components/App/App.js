@@ -39,7 +39,10 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header
+        isLoggedIn={isLoggedIn}
+        handleUserSignInClick={handleUserSignInClick}
+        handleUserSignOutClick={handleUserSignOutClick} />
       <Switch>
         <Route exact path="/">
           <Main />

@@ -12,9 +12,9 @@ function NewsCard(props){
   const [isDeleteHover, setIsDeleteHover]     = React.useState(false);
 
   const { title, article, source, date, image} = newsItem;
-  const newsTitle   = title || 'Title not available';
+  const newsTitle   = title   || 'Title not available';
   const newsArticle = article || 'Content not available';
-  const newsSource  = source || 'Unknown';
+  const newsSource  = source  || 'Unknown';
 
   // Covert Date to correct format - Month DD, YYYY
   const getNewsDate = () => {
@@ -65,9 +65,9 @@ function NewsCard(props){
   }
 
   const bookmarkBtnClassName = `news-card__bookmark
-    ${(cardType === 'search-result') && `news-card__bookmark_visible`}
-    ${(isNewsCardSaved) && `news-card__bookmark_saved`}
-    ${(isBookmarkHover) && `news-card__bookmark_hover`}`;
+    ${(cardType === 'search-result')  && `news-card__bookmark_visible`}
+    ${(isNewsCardSaved)               && `news-card__bookmark_saved`}
+    ${(isBookmarkHover)               && `news-card__bookmark_hover`}`;
 
   const signInBtnClassName = `news-card__sign-in
     ${(!isLoggedIn && isBookmarkHover) && `news-card__sign-in_visible`}`;
@@ -76,8 +76,8 @@ function NewsCard(props){
     ${(cardType === 'saved-news') && `news-card__keyword_visible`}`;
 
   const deleteBtnClassName = `news-card__delete
-    ${(cardType === 'saved-news') && `news-card__delete_visible`}
-    ${(isDeleteHover) && `news-card__delete_hover`}`;
+    ${(cardType === 'saved-news')   && `news-card__delete_visible`}
+    ${(isDeleteHover)               && `news-card__delete_hover`}`;
 
   const deleteTooltipClassName = `news-card__delete-tooltip
     ${(isDeleteHover) && `news-card__delete-tooltip_visible`}`;

@@ -76,6 +76,7 @@
 @media screen and (max-width: 500px) {
   .main {
     margin: -56px 0 0;
+    /* margin: 0; */
     background: url('../../images/hero-banner-mobile.png') no-repeat center;
     background-size: cover;
   }

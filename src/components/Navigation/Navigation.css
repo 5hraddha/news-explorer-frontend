@@ -12,6 +12,11 @@
   z-index: 10;
 }
 
+.nav_white {
+  color: rgba(26, 27, 34, 1);
+  background-color: rgba(255, 255, 255, 1);
+}
+
 .nav__list {
   box-sizing: border-box;
   margin: 0;
@@ -19,7 +24,6 @@
   list-style: none;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   column-gap: 20px;
   position: relative;
 }
@@ -27,16 +31,30 @@
 .nav__item {
   box-sizing: border-box;
   margin: 0;
-  padding: 12px 22px;
+  padding: 13px 22px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.nav__item_hover_white,
+.nav__item_hover_black {
+  border-bottom: 3px solid transparent;
+  transition: all ease-in-out .4s;
+}
+
+.nav__item_hover_white:hover {
+  border-bottom: 3px solid rgba(255, 255, 255, 1);
+}
+
+.nav__item_hover_black:hover {
+  border-bottom: 3px solid rgba(0, 0, 0, 1);
+}
+
 .nav__link {
   box-sizing: border-box;
-  margin: -10px;
-  padding: 10px;
+  margin: -25px;
+  padding: 25px;
   text-decoration: none;
   color: rgba(255, 255, 255, 1);
   display: inline-block;
@@ -44,21 +62,42 @@
   z-index: 1;
 }
 
+.nav__link_white {
+  color: rgba(26, 27, 34, 1);
+}
+
 .nav__link:hover {
   cursor: pointer;
 }
 
 .nav__button {
+  box-sizing: border-box;
   margin: 0 -22px;
-  padding: 12px 58px;
+  padding: 12px 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid rgba(255, 255, 255, 1);
   border-radius: 100px;
   background-color: transparent;
   color: rgba(255, 255, 255, 1);
 }
 
+.nav__button_small {
+  padding: 12px 19px;
+}
+
+.nav__button_white {
+  color: rgba(26, 27, 34, 1);
+  border: 1px solid rgba(26, 27, 34, 1);
+}
+
 .nav__button:hover {
   cursor: pointer;
+}
+
+.nav__logout {
+  margin: 0 0 0 19px;
 }
 
 @media screen and (max-width: 768px) {
@@ -85,6 +124,14 @@
     margin: 0 -10px;
     padding: 10px 50px;
   }
+
+  .nav__button_small {
+    padding: 8px 15px;
+  }
+
+  .nav__logout {
+    margin: 0 0 0 17px;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -104,10 +151,10 @@
   .nav__list {
     padding: 16px 0 24px;
     flex-direction: column;
+    align-items: center;
   }
 
   .nav__item {
-    margin: 0 16px;
     padding: 0;
     width: 100%;
     justify-content: flex-start;
@@ -125,7 +172,6 @@
   .nav__button {
     margin: 0;
     padding: 16px 100px;
-    width: 100%;
     font-size: 18px;
     line-height: 1.33;
   }
