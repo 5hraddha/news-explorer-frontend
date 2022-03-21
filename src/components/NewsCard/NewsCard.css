@@ -95,10 +95,11 @@
   margin: 0;
   padding: 0;
   font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-style: normal;
   font-size: 16px;
   line-height: 1.25;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
   color: rgba(182, 188, 191, 1);
 }
@@ -118,11 +119,16 @@
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0px 10px 22px 0 rgba(59, 74, 116, 0.1);
-  transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;  
+  cursor: pointer;
+  display: none;
 }
 
-.news-card__bookmark:hover {
-  cursor: pointer;
+.news-card__bookmark_visible {
+  display: block;
+}
+
+.news-card__bookmark_hover {
   background-image: url('../../images/bookmark-hover.svg');
 }
 
@@ -160,6 +166,86 @@
   visibility: visible;
   opacity: 1;
   pointer-events: all;
+}
+
+.news-card__keyword {
+  margin: 0;
+  padding: 8px 22px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.714;
+  color: rgba(0, 0, 0, 1);
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 10px 22px 0 rgba(59, 74, 116, 0.1);
+  border: none;
+  border-radius: 10px;
+  display: none;
+}
+
+.news-card__keyword_visible {
+  display: block;
+}
+
+.news-card__delete {
+  margin: 0;
+  padding: 8px;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 1);
+  border: none;
+  border-radius: 8px;
+  background-image: url('../../images/trash-normal.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0px 10px 22px 0 rgba(59, 74, 116, 0.1);
+  transition: all .2s ease-in-out;  
+  cursor: pointer;
+  display: none;
+}
+
+.news-card__delete_visible {
+  display: block;
+}
+
+.news-card__delete_hover {
+  background-image: url('../../images/trash-hover.svg');
+}
+
+.news-card__delete-tooltip {
+  margin: 0;
+  padding: 13px 26px;
+  position: absolute;
+  top: 24px;
+  right: 69px;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.172;
+  color: rgba(0, 0, 0, 1);
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 10px 22px 0 rgba(59, 74, 116, 0.1);
+  border: none;
+  border-radius: 10px;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .4s ease-in-out, opacity .4s ease-in-out;
+}
+
+.news-card__delete-tooltip:hover {
+  cursor: pointer;
+}
+
+.news-card__delete-tooltip_visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 @media screen and (max-width: 768px) {

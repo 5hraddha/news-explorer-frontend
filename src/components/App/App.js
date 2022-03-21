@@ -13,18 +13,22 @@ function App() {
   const NO_OF_CARDS_TO_RENDER = 3;
   const savedArticles = [];
 
-  const handleLogin = () => {
-    // Hit API endpoint
+  const handleLoginSubmit = () => {
     setIsLoggedIn(true);
-    console.log('Logged In');
   }
 
-  const handleSave = () => {
-    console.log('Article saved');
+  const handleUserSignInClick = () => {
+    setIsLoggedIn(true);
+    console.log("Logged in");
   }
 
-  const handleDelete = () => {
-    console.log('Article unsaved');
+  const handleUserSignOutClick = () => {
+    setIsLoggedIn(false);
+    console.log("Logged out");
+  }
+
+  const handleDeleteCardClick = () => {
+    console.log("The saved card is deleted");
   }
 
   return (
@@ -33,9 +37,7 @@ function App() {
       <Main />
       <NewsCardList
         isLoggedIn={isLoggedIn}
-        handleLogin={handleLogin}
-        handleSave={handleSave}
-        handleDelete={handleDelete}
+        handleUserSignInClick={handleUserSignInClick}
         news={news}
         noOfCardsToRender={NO_OF_CARDS_TO_RENDER} />
       <SavedNewsHeader savedArticles={savedArticles} />

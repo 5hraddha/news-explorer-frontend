@@ -5,9 +5,7 @@ import NewsCard       from '../NewsCard/NewsCard';
 function NewsCardList(props){
   const {
     isLoggedIn,
-    handleLogin,
-    handleSave,
-    handleDelete,
+    handleUserSignInClick,
     news,
     noOfCardsToRender } = props;
   const [cardsToRender, setCardsToRender] = React.useState(news.slice(0, noOfCardsToRender));
@@ -27,10 +25,9 @@ function NewsCardList(props){
             <NewsCard
               key={index}
               newsItem={newsItem}
+              cardType='search-result'
               isLoggedIn={isLoggedIn}
-              handleLogin={handleLogin}
-              handleSave={handleSave}
-              handleDelete={handleDelete} />
+              handleUserSignInClick={handleUserSignInClick} />
           ))}
         </div>
         <div className="show-more">
