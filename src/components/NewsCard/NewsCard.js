@@ -5,8 +5,7 @@ function NewsCard(props){
   const {
     newsItem,
     cardType,
-    isLoggedIn,
-    handleUserSignInClick} = props;
+    isLoggedIn} = props;
 
   const [isBookmarkHover, setIsBookmarkHover] = React.useState(false);
   const [isNewsCardSaved, setIsNewsCardSaved] = React.useState(false);
@@ -45,11 +44,11 @@ function NewsCard(props){
     if(isLoggedIn){
       setIsNewsCardSaved(!isNewsCardSaved);
     }
-    handleUserSignInClick();
+    props.handleUserSignInClick();
   }
 
   const handleSignInButtonClick = () => {
-    handleUserSignInClick();
+    props.handleUserSignInClick();
   }
 
   // Event handlers for a saved news card
