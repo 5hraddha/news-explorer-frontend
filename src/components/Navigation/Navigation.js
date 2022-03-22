@@ -50,7 +50,7 @@ function Navigation(props){
           Sign In
         </button>
       );
-      }
+    }
 
     return (
       <button className={navButtonClassName} onClick={handleSignOut}>
