@@ -12,25 +12,47 @@ import About            from '../About/About';
 import SavedNewsHeader  from '../SavedNewsHeader/SavedNewsHeader';
 import SavedNews        from '../SavedNews/SavedNews';
 import Footer           from '../Footer/Footer';
+import Login            from '../Login/Login';
 import news             from '../../utils/news';
 import savedNews        from '../../utils/saved-news';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
+  const [isLoggedIn, setIsLoggedIn]                           = React.useState(false);
+  const [isLoginPopupOpen, setIsLoginPopupOpen]               = React.useState(false);
+  const [isRegisterPopupOpen, setIsRegisterPopupOpen]         = React.useState(false);
+  const [registerEmail, setRegisterEmail]                     = React.useState('');
+  const [registerUsername, setRegisterUsername]               = React.useState('');
+  const [registerPassword, setRegisterPassword]               = React.useState('');
+  const [loginEmail, setLoginEmail]                           = React.useState('');
+  const [loginPassword, setLoginPassword]                     = React.useState('');
+
   const NO_OF_CARDS_TO_RENDER = 3;
 
   const handleLoginSubmit = () => {
+    setIsLoginPopupOpen(false);
+    console.log({loginEmail, loginPassword});
+    setLoginEmail('');
+    setLoginPassword('');
     setIsLoggedIn(true);
+    console.log("Logged in");
   }
 
   const handleUserSignInClick = () => {
-    setIsLoggedIn(true);
-    console.log("Logged in");
+    setIsLoginPopupOpen(true);
+  }
+
+  const handleUserSignUpClick = () => {
+    setIsRegisterPopupOpen(true);
   }
 
   const handleUserSignOutClick = () => {
     setIsLoggedIn(false);
     console.log("Logged out");
+  }
+
+  const closeAllPopups = () => {
+    setIsLoginPopupOpen(false);
+    setIsRegisterPopupOpen(false);
   }
 
   const handleDeleteCardClick = () => {
@@ -61,6 +83,14 @@ function App() {
         </ProtectedRoute>
       </Switch>
       <Footer />
+      <Login
+        isLoginPopupOpen={isLoginPopupOpen}
+        onSubmit={handleLoginSubmit}
+        onClose={closeAllPopups}
+        loginEmail={loginEmail}
+        setLoginEmail={setLoginEmail}
+        loginPassword={loginPassword}
+        setLoginPassword={setLoginPassword} />
     </div>
   );
 }
