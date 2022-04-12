@@ -136,6 +136,7 @@
   }
 
   .footer__social-links {
-    column-gap: 20px;
+    align-self: start;
+    column-gap: 27.9px;
   }
 }
