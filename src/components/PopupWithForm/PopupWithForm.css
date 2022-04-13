@@ -150,7 +150,7 @@
   opacity: .8;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 560px) {
   .popup__container {
     width: 320px;
     padding: 16px 17px;
@@ -159,11 +159,31 @@
   .popup__title {
     margin: 0 0 18px;
   }
+
+  .popup__close-btn {
+    right: 0;
+  }
 }
 
 @media screen and (max-width: 320px) {
+  .popup {
+    align-items: flex-end;
+  }
+
   .popup__container {
     width: 100%;
     padding: 16px 17px 100%;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .popup__submit {
+    margin: 9px 0 0;
+  }
+
+  .popup__close-btn {
+    top: -40px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
   }
 }
