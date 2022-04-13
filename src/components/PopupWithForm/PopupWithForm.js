@@ -9,11 +9,11 @@ import './PopupWithForm.css';
  * @author [Shraddha](https://github.com/5hraddha)
  */
 function PopupWithForm(props) {
-  const { children }                        = props;
-  const { onClose, onSubmit }               = props;
-  const { name, title, btnLabel, isOpen }   = props;
-  const formRef                             = React.createRef();
-  const [isFormValid, setIsFormValid]       = React.useState(false);
+  const { children }                                       = props;
+  const { onClose, onSubmit, onInlineBtnClick }            = props;
+  const { name, title, btnLabel, isOpen, inlineBtnLabel }  = props;
+  const formRef                                            = React.createRef();
+  const [isFormValid, setIsFormValid]                      = React.useState(false);
 
   React.useEffect(() => {
     setIsFormValid(formRef.current.checkValidity());
@@ -47,6 +47,12 @@ function PopupWithForm(props) {
 
         </form>
         <button className="popup__close-btn" type="button" aria-label="Close popup" onClick={onClose} />
+        <p className="popup__msg">
+          or 
+          <button className="popup__inline-btn" type="button" aria-label={inlineBtnLabel}  onClick={onInlineBtnClick}>
+            {inlineBtnLabel}
+          </button>
+        </p>
       </div>
     </div>
   );

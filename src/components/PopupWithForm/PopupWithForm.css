@@ -31,6 +31,8 @@
   padding: 34px 36px 28px;
   position: relative;
   width: 430px;
+  display: flex;
+  flex-direction: column;
   background-color: rgba(255, 255, 255, 1);
   color: rgba(26, 27, 34, 1);
   border-radius: 16px;
@@ -59,7 +61,7 @@
 
 .popup__submit {
   box-sizing: border-box;
-  margin: 39px 0 0;
+  margin: 25px 0 0;
   padding: 0;
   width: 100%;
   min-height: 64px;
@@ -79,7 +81,7 @@
   transition: all .3s ease-in-out;
 }
 
-.popup__submit:hover {
+.popup__submit:hover:not(.popup__submit_disabled) {
   background-color: rgba(52, 126, 255, 1);
   cursor: pointer;
 }
@@ -110,6 +112,42 @@
   background-size: cover;
   border: none;
   transition: all .3s ease-in-out;
+}
+
+.popup__close-btn:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+.popup__msg {
+  margin: 16px 0 0;
+  padding: 0;
+  place-self: center;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  color: rgba(26, 27, 34, 1);
+}
+
+.popup__inline-btn {
+  margin: 0 0 0 5px;
+  padding: 0;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  background-color: transparent;
+  color: rgba(47, 113, 229, 1);
+  border: none;
+  transition: all .3s ease-in-out;
+}
+
+.popup__inline-btn:hover {
+  cursor: pointer;
+  opacity: .8;
 }
 
 @media screen and (max-width: 500px) {

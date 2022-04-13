@@ -87,6 +87,7 @@ function App() {
         isLoginPopupOpen={isLoginPopupOpen}
         onSubmit={handleLoginSubmit}
         onClose={closeAllPopups}
+        onSignUpClick={handleUserSignUpClick}
         loginEmail={loginEmail}
         setLoginEmail={setLoginEmail}
         loginPassword={loginPassword}

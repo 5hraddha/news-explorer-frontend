@@ -9,12 +9,20 @@ function Login(props){
     isLoginPopupOpen,
     onSubmit,
     onClose,
+    onSignUpClick,
     loginEmail,
     setLoginEmail,
     loginPassword,
     setLoginPassword,
   }  = props;
-  const {isValid, errors, handleChange, resetForm} = useFormAndValidation(['login-email', 'login-password']);
+  const {
+    isValid,
+    errors,
+    inputsTouched,
+    handleInputChange,
+    handleInputBlur,
+    handleInputFocus,
+    resetForm }       = useFormAndValidation(['login-email', 'login-password']);
 
   // Reset form values every time the popup opens
   React.useEffect(() => {
@@ -25,9 +33,16 @@ function Login(props){
     setLoginEmail('');
     setLoginPassword('');
     resetForm({...initialValues}, {...initialValues}, true);
-  }, [resetForm, setLoginEmail, setLoginPassword]);
+  }, [isLoginPopupOpen, resetForm, setLoginEmail, setLoginPassword]);
 
-  const handleInputChange = (e) => {
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if(isValid || (loginEmail && loginPassword)){
+      onSubmit();
+    }
+  }
+
+  const handleChange = (e) => {
     let customValidationMessage = '';
     if(e.target.name === 'login-email'){
       setLoginEmail(e.target.value);
@@ -37,31 +52,29 @@ function Login(props){
       setLoginPassword(e.target.value);
       customValidationMessage = 'Invalid password';
     }
-    handleChange(e, customValidationMessage);
+    handleInputChange(e, customValidationMessage);
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    if(isValid || (loginEmail && loginPassword)){
-      onSubmit();
-    }
-  }
+  const handleBlur = (e) => handleInputBlur(e);
+  const handleFocus = (e) => handleInputFocus(e);
 
-  const emailInputErrorClass    = `login-form__error ${(!isValid && errors['login-email']) && `login-form__error_visible`}`;
-  const passwordInputErrorClass = `login-form__error ${(!isValid && errors['login-password']) && `login-form__error_visible`}`;
+  const emailInputErrorClass    = `login-form__error ${(!isValid && errors['login-email'] && inputsTouched['login-email']) && `login-form__error_visible`}`;
+  const passwordInputErrorClass = `login-form__error ${(!isValid && errors['login-password'] && inputsTouched['login-password']) && `login-form__error_visible`}`;
 
   return (
     <PopupWithForm
       name="login"
       title="Sign in"
       btnLabel="Sign in"
+      inlineBtnLabel="Sign up"
       isOpen={isLoginPopupOpen}
       onClose={onClose}
-      onSubmit={handleFormSubmit}>
+      onSubmit={handleFormSubmit}
+      onInlineBtnClick={onSignUpClick}>
         <div className="login-form">
           <div className="login-form__input-group">
             <label className="login-form__label" htmlFor="login-email">
-              <span className="login-form__label-text">Name</span>
+              <span className="login-form__label-text">Email</span>
               <input
                 className="login-form__input"
                 type="email"
@@ -69,7 +82,9 @@ function Login(props){
                 name="login-email"
                 placeholder="Enter Email"
                 value={loginEmail}
-                onChange={handleInputChange}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onFocus={handleFocus}
                 required />
               <span id="login-email-error" className={emailInputErrorClass}>
                 {errors['login-email']}
@@ -86,7 +101,9 @@ function Login(props){
                 name="login-password"
                 placeholder="Enter Password"
                 value={loginPassword}
-                onChange={handleInputChange}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onFocus={handleFocus}
                 minLength='8'
                 required />
               <span id="login-password-error" className={passwordInputErrorClass}>
