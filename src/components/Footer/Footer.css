@@ -66,10 +66,12 @@
   text-decoration: none;
   color: rgba(26, 27, 34, 1);
   display: inline-block;
+  transition: all .3s ease-in-out;
 }
 
 .footer-nav__link:hover {
   cursor: pointer;
+  opacity: .8;
 }
 
 .footer__social-links {
@@ -94,6 +96,12 @@
   align-items: center;
   display: inline-block;
   position: relative;
+  transition: all .3s ease-in-out;
+}
+
+.footer__social-link:hover {
+  cursor: pointer;
+  opacity: .8;
 }
 
 .footer__social-icon {
