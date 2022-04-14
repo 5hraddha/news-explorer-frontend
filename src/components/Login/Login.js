@@ -80,7 +80,7 @@ function Login(props){
                 type="email"
                 id="login-email"
                 name="login-email"
-                placeholder="Enter Email"
+                placeholder="Enter email"
                 value={loginEmail}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -99,7 +99,7 @@ function Login(props){
                 type="password"
                 id="login-password"
                 name="login-password"
-                placeholder="Enter Password"
+                placeholder="Enter password"
                 value={loginPassword}
                 onChange={handleChange}
                 onBlur={handleBlur}
