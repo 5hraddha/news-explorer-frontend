@@ -13,6 +13,7 @@ import SavedNewsHeader  from '../SavedNewsHeader/SavedNewsHeader';
 import SavedNews        from '../SavedNews/SavedNews';
 import Footer           from '../Footer/Footer';
 import Login            from '../Login/Login';
+import Register         from '../Register/Register';
 import news             from '../../utils/news';
 import savedNews        from '../../utils/saved-news';
 
@@ -37,11 +38,22 @@ function App() {
     console.log("Logged in");
   }
 
+  const handleRegisterSubmit = () => {
+    setIsRegisterPopupOpen(false);
+    console.log({registerEmail, registerPassword, registerUsername});
+    setRegisterEmail('');
+    setRegisterPassword('');
+    setRegisterUsername('');
+    console.log("Successfully Registered");
+  }
+
   const handleUserSignInClick = () => {
+    closeAllPopups();
     setIsLoginPopupOpen(true);
   }
 
   const handleUserSignUpClick = () => {
+    closeAllPopups();
     setIsRegisterPopupOpen(true);
   }
 
@@ -92,6 +104,17 @@ function App() {
         setLoginEmail={setLoginEmail}
         loginPassword={loginPassword}
         setLoginPassword={setLoginPassword} />
+      <Register
+        isRegisterPopupOpen={isRegisterPopupOpen}
+        onSubmit={handleRegisterSubmit}
+        onClose={closeAllPopups}
+        onSignInClick={handleUserSignInClick}
+        registerUsername={registerUsername}
+        setRegisterUsername={setRegisterUsername}
+        registerEmail={registerEmail}
+        setRegisterEmail={setRegisterEmail}
+        registerPassword={registerPassword}
+        setRegisterPassword={setRegisterPassword} />
     </div>
   );
 }
